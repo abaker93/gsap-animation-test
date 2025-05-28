@@ -1,0 +1,59 @@
+:root {
+	--dark: #171717;
+	--light: #EEEEEE;
+
+	--gray: #555555;
+}
+
+html, body {
+	background-color: var(--dark);
+	color: var(--light);
+	margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+section {
+	width: 100%;
+}
+
+.mapContainer {
+	/* height: 100vh; */
+	/* width: 100%; */
+	position: relative;
+}
+
+.map {
+	height: 100vh;
+	/* position: absolute;
+	top: 0;
+	left: 0; */
+}
+
+.mapText {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.mapText div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+	font-weight: bold;
+	color: var(--light);
+}
+
+#PA { background-color: rgba(0, 255, 0, 0.2); }
+#OH { background-color: rgba(0, 0, 255, 0.2); }
+#NY { background-color: rgba(255, 165, 0, 0.2); }

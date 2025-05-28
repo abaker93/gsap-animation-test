@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import "./globals.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -34,9 +35,9 @@ export default function Home() {
 				scrub: 1
 			}
 		})
-		.to("#_PA", { fill: "#228b22" })
-		.to("#_OH", { fill: "#00ff00" })
-		.to("#_NY", { fill: "#00ff7f" })
+		.to("#_PA", { fill: "lime" })
+		.to("#_OH", { fill: "blue" })
+		.to("#_NY", { fill: "orange" })
 	}, { scope: container})
 
   return (
