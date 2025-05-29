@@ -12,12 +12,12 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 export default function Map() {
 	const map = useRef(null)
 
-	// useGSAP(() => {
-  //   ScrollSmoother.create({
-  //     wrapper: "#smooth-wrapper",
-  //     content: "#smooth-content",
-  //   })
-  // })
+	useGSAP(() => {
+    ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+    })
+  })
 
 	useGSAP(() => {
 		const mapTL = gsap.timeline()
@@ -56,7 +56,7 @@ export default function Map() {
 
 	return (
 		<>
-			<Cursor />
+			{/* <Cursor /> */}
 			<div id="scroll-wrapper">
 				<main id="smooth-content">
 					<section className="textContainer">
