@@ -17,7 +17,7 @@ export default function Cursor(){
 		if (yTo) yTo.current = gsap.quickTo(".cursor", "y", { duration: 0.6, ease: "expo" })
 	}, { scope: cc })
 
-	const moveCursor = contextSafe((e) => {
+	const moveCursor = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
 		if (xTo.current && yTo.current) {
 			xTo.current(e.clientX)
 			yTo.current(e.clientY)
