@@ -4,26 +4,12 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import "./map.style.css";
+import Cursor from '@/components/cursor';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Home() {
-	const app = useRef(null)
-	const xTo = useRef<gsap.QuickToFunc | null>(null)
-	const yTo = useRef<gsap.QuickToFunc | null>(null)
-	const container = useRef()
-
-	const { contextSafe } = useGSAP(() => {
-		xTo.current = gsap.quickTo(".flair", "x", { duration: 0.6, ease: "expo" }),
-		yTo.current = gsap.quickTo(".flair", "y", { duration: 0.6, ease: "expo" })
-	}, { scope: app })
-
-	const moveShape = contextSafe((e: React.MouseEvent) => {
-		if (xTo.current && yTo.current) {
-			xTo.current(e.clientX);
-			yTo.current(e.clientY);
-		}
-	})
+	const container = useRef(null)
 
 	useGSAP(() => {
 		gsap.timeline({
@@ -41,9 +27,10 @@ export default function Home() {
 	}, { scope: container})
 
 	return (
-		<div className="app" ref={app} onMouseMove={e => moveShape(e)}>
+		<div className="app">
+			<Cursor />
+
 			<div className="scrollTrigger" />
-			<div className="flair" />
 
 			<div className="container" ref={container}>
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="100%" viewBox="0 0 399.3 542.9">

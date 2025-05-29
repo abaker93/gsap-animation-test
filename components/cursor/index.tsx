@@ -7,25 +7,28 @@ import "./cursor.style.css";
 gsap.registerPlugin(useGSAP);
 
 export default function Cursor(){
-	const container = useRef();
-	const xTo = useRef();
-	const yTo = useRef();
+	const cc = useRef<HTMLDivElement | null>(null);
+	const cursor = useRef<HTMLDivElement | null>(null);
+	const xTo = useRef<gsap.QuickToFunc | null>(null);
+	const yTo = useRef<gsap.QuickToFunc | null>(null);
 
 	const { contextSafe } = useGSAP(() => {
-		xTo.current = gsap.quickTo(".cursor", "x", { duration: 0.6, ease: "expo" }),
-		yTo.current = gsap.quickTo(".cursor", "y", { duration: 0.6, ease: "expo" });
-	}, { scope: container})
+		if (xTo) xTo.current = gsap.quickTo(".cursor", "x", { duration: 0.6, ease: "expo" })
+		if (yTo) yTo.current = gsap.quickTo(".cursor", "y", { duration: 0.6, ease: "expo" })
+	}, { scope: cc })
 
 	const moveCursor = contextSafe((e) => {
 		if (xTo.current && yTo.current) {
 			xTo.current(e.clientX)
 			yTo.current(e.clientY)
+
+			cursor.current?.classList.add("active")
 		}
 	})
 
 	return (
-		<div className="container" ref={container} onMouseMove={e => moveCursor(e)}>
-			<div className="cursor"></div>
+		<div className="cc" ref={cc} onMouseMove={e => moveCursor(e)}>
+			<div className="cursor" ref={cursor}></div>
 		</div>
 	)
 }
