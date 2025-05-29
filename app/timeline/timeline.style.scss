@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+	--dark: #171717;
+	--light: #EEEEEE;
+
+	--gray: #555555;
+	--blue: #007BFF;
+	--dkblue: #033974;
+}
+
+html, body {
+	background-color: var(--dark);
+	color: var(--light);
+}
+
+.timeline {
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+		padding: 10rem;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: calc(40% - 2rem - 2px);
+			width: 4px;
+			height: 100%;
+			background-color: var(--dkblue);
+		}
+
+		&-layout {
+			display: flex;
+			align-items: flex-start;
+			gap: 3rem;
+		}
+
+		&-left {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 3rem;
+			flex: 1 1 auto;
+		}
+
+		&-right {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			flex: 0 1 60%;
+			gap: 1rem;
+		}
+
+		&__bullet {
+			border-radius: 50%;
+			background-color: var(--blue);
+			padding: 1rem;
+			z-index: 1;
+		}
+
+		&__date {
+			font-size: 1.5rem;
+			font-weight: 900;
+			letter-spacing: 0.1rem;
+			background-color: var(--blue);
+			padding: 0.25rem 1.25rem;
+		}
+
+		&__title {
+			font-size: 1.75rem;
+			font-weight: 400;
+			font-style: italic;
+		}
+
+		&__description {
+			font-size: 1.25rem;
+			font-weight: 300;
+		}
+	}
+}
