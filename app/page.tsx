@@ -12,12 +12,12 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 export default function Map() {
 	const map = useRef(null)
 
-	useGSAP(() => {
-    ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-    })
-  })
+	// useGSAP(() => {
+  //   ScrollSmoother.create({
+  //     wrapper: "#smooth-wrapper",
+  //     content: "#smooth-content",
+  //   })
+  // })
 
 	useGSAP(() => {
 		const mapTL = gsap.timeline()
