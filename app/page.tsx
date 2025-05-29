@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useGSAP } from '@gsap/react';
-import Cursor from '@/components/cursor';
+// import Cursor from '@/components/cursor';
 import "./globals.css";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
